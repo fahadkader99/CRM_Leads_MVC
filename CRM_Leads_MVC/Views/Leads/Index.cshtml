@@ -1,0 +1,84 @@
+﻿@model IEnumerable<CRM_Leads_MVC.Models.LeadsEntity>
+
+<br />
+
+<h1>Leads</h1>
+
+<hr />
+<br />
+
+
+<table class="table table-striped">
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeadDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeadSource)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeadStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NextFollowUpDate)
+            </th>
+            <th></th>
+        </tr>
+
+
+@foreach (var item in Model) {
+
+    @Html.HiddenFor(model => item.Id)
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeadDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeadSource)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeadStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NextFollowUpDate)
+            </td>
+            <td>
+                <a asp-action="EditLead" asp-route-Id="@item.Id"><i class="fa-regular fa-pen-to-square">Edit</i></a>
+                <br />
+                <a asp-action="DeleteLead" asp-route-Id="@item.Id"><i class="fa-regular fa-trash-can">Delete</i></a>
+            </td>
+        </tr>
+}
+
+</table>
+
+<br />
+
+<p>
+    <a asp-action="AddLead" asp-controller="Leads"><i class="fa-solid fa-user-plus">Add New Lead</i></a>
+</p>

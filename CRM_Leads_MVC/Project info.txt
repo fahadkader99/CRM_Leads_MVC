@@ -1,0 +1,7 @@
+-- Project Info --
+
+Youtube:
+How To Implement CRUD Operations in ASP.NET Using ADO.NET - Complete Guide
+
+URL:
+https://www.youtube.com/watch?v=6MLLzFZ6P2w&list=PLtNXxhX8HfFCi8BcCHaWFFAhUwzzdG5Nt&index=5

@@ -1,0 +1,14 @@
+-- DB config for CRM_Leads_MVC --
+
+1. Create DB - CRMLeads
+
+2. Create table with the following column & datatype:
+
+ID (PK)			int
+LeadDate		DateTime
+Name			varchar(100)
+EmailAddress		varchar(100)
+Mobile			varchar(12)
+LeadSource		varchar(12)
+LeadStatus		varchar(12)
+NextFollowUpDate	varchar(12)
