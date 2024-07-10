@@ -8,7 +8,7 @@ namespace CRM_Leads_MVC.Data
         /*
          * This data layer class hold :
          * - the DB connection string 
-         * - all the function to perform the CRUD operation
+         * - all the procedure related function to perform the CRUD operation
          *  System.Data.SqlClient - nuGet package needs to be downloaded
          */
 
@@ -30,7 +30,7 @@ namespace CRM_Leads_MVC.Data
             // Empty list of Lead Entity
             List<LeadsEntity> leadListEntity = new List<LeadsEntity>();
 
-            // Calling the 'GetAllLeads' store proc
+            // Passing store proc name 'GetAllLeads' & the connection
             SqlCommand cmd = new SqlCommand("GetAllLeads", _connection);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
@@ -61,6 +61,39 @@ namespace CRM_Leads_MVC.Data
 
         }
 
+        /*
+        * This function is adding records to DB
+        */
+        public bool AddLead(LeadsEntity lead)
+        {
+            // Passing store proc name 'AddLead' & the connection
+            SqlCommand cmd = new SqlCommand("AddLead", _connection);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@LeadDate", lead.LeadDate);
+            cmd.Parameters.AddWithValue("@Name", lead.Name);
+            cmd.Parameters.AddWithValue("@EmailAddress", lead.EmailAddress);
+            cmd.Parameters.AddWithValue("@Mobile", lead.Mobile);
+            cmd.Parameters.AddWithValue("@LeadSource", lead.LeadSource);
+            cmd.Parameters.AddWithValue("@LeadStatus", lead.LeadStatus);
+            cmd.Parameters.AddWithValue("@NextFollowUpDate", lead.NextFollowUpDate);
+
+            _connection.Open();
+
+            int count = cmd.ExecuteNonQuery();
+            _connection.Close();
+
+            if(count >= 1)
+            {
+                // Count will increment if query is executed
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
 
     }
 }

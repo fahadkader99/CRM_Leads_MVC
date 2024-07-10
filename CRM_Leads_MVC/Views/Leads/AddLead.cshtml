@@ -1,0 +1,67 @@
+﻿@model CRM_Leads_MVC.Models.LeadsEntity
+
+@{
+    ViewData["Title"] = "AddLead";
+}
+
+
+<h1>Add Lead</h1>
+
+@Html.Raw(TempData["InsertErrorMsg"])
+
+<h4>Leads Entity</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddNewLead">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="LeadDate" class="control-label"></label>
+                <input asp-for="LeadDate" class="form-control" />
+                <span asp-validation-for="LeadDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmailAddress" class="control-label"></label>
+                <input asp-for="EmailAddress" class="form-control" />
+                <span asp-validation-for="EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mobile" class="control-label"></label>
+                <input asp-for="Mobile" class="form-control" />
+                <span asp-validation-for="Mobile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LeadSource" class="control-label"></label>
+                <input asp-for="LeadSource" class="form-control" />
+                <span asp-validation-for="LeadSource" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LeadStatus" class="control-label"></label>
+                <input asp-for="LeadStatus" class="form-control" />
+                <span asp-validation-for="LeadStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NextFollowUpDate" class="control-label"></label>
+                <input asp-for="NextFollowUpDate" class="form-control" />
+                <span asp-validation-for="NextFollowUpDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
