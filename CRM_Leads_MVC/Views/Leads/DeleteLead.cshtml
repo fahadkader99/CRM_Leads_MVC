@@ -1,7 +1,7 @@
 ﻿@model CRM_Leads_MVC.Models.LeadsEntity
 
 @{
-    ViewData["Title"] = "AddLead";
+    ViewData["Title"] = "DeleteLead";
 }
 
 
@@ -10,22 +10,15 @@
 
 <div class="container">
     <div class="col-md-10 border-1">
-        <form asp-action="AddNewLead">
+        <form asp-action="DeleteLead">
+            <input asp-for="Id" hidden />
 
-            <h4>Create New Lead</h4><hr />
-
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <b>@ViewBag.Message</b>
-                </div>
-            </div>
+            <h4>Delete Lead Details</h4><hr />
 
             <div class="row">
                 <div class="col-3">
                     <label asp-for="LeadDate" class="control-label"></label>
-                    <input asp-for="LeadDate" class="form-control" />
-                    <span asp-validation-for="LeadDate" class="text-danger"></span>
+                    <input asp-for="LeadDate" class="form-control" readonly/>
                 </div>
             </div>
 
@@ -33,14 +26,12 @@
             <div class="row">
                 <div class="col-6">
                     <label asp-for="Name" class="control-label"></label>
-                    <input asp-for="Name" class="form-control" />
-                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <input asp-for="Name" class="form-control" readonly />
                 </div>
 
                 <div class="col-6">
                     <label asp-for="EmailAddress" class="control-label"></label>
-                    <input asp-for="EmailAddress" class="form-control" />
-                    <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                    <input asp-for="EmailAddress" class="form-control" readonly />
                 </div>
             </div>
 
@@ -48,14 +39,12 @@
             <div class="row">
                 <div class="col-6">
                     <label asp-for="Mobile" class="control-label"></label>
-                    <input asp-for="Mobile" class="form-control" />
-                    <span asp-validation-for="Mobile" class="text-danger"></span>
+                    <input asp-for="Mobile" class="form-control" readonly />
                 </div>
 
                 <div class="col-6">
                     <label asp-for="LeadSource" class="control-label"></label>
-                    <input asp-for="LeadSource" class="form-control" />
-                    <span asp-validation-for="LeadSource" class="text-danger"></span>
+                    <input asp-for="LeadSource" class="form-control" readonly />
                 </div>
             </div>
 
@@ -63,21 +52,19 @@
             <div class="row">
                 <div class="col-6">
                     <label asp-for="LeadStatus" class="control-label"></label>
-                    <input asp-for="LeadStatus" class="form-control" />
-                    <span asp-validation-for="LeadStatus" class="text-danger"></span>
+                    <input asp-for="LeadStatus" class="form-control" readonly />
                 </div>
 
                 <div class="col-6">
                     <label asp-for="NextFollowUpDate" class="control-label"></label>
-                    <input asp-for="NextFollowUpDate" class="form-control" />
-                    <span asp-validation-for="NextFollowUpDate" class="text-danger"></span>
+                    <input asp-for="NextFollowUpDate" class="form-control" readonly />
                 </div>
             </div>
 
             <br />
 
             <div class="form-group">
-                <input type="submit" value="Save Lead" class="btn btn-primary" />
+                <input type="submit" value="Delete Lead" class="btn btn-primary" />
                 <a asp-action="Index" class="btn btn-warning">Back to List</a>
             </div>
         </form>

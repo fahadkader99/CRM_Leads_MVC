@@ -1,7 +1,7 @@
 ﻿@model CRM_Leads_MVC.Models.LeadsEntity
 
 @{
-    ViewData["Title"] = "AddLead";
+    ViewData["Title"] = "EditLead";
 }
 
 
@@ -10,9 +10,10 @@
 
 <div class="container">
     <div class="col-md-10 border-1">
-        <form asp-action="AddNewLead">
+        <form asp-action="EditLeadDetails">
+            <input asp-for="Id" hidden/>
 
-            <h4>Create New Lead</h4><hr />
+            <h4>Edit Lead Details</h4><hr />
 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
